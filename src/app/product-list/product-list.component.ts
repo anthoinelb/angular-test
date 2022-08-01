@@ -12,6 +12,11 @@ export class ProductListComponent {
   share() {
     window.alert('The product has been shared!');
   }
+
+  onNotify(value: any): void {
+    //window.alert('The product has been notified!');
+    window.alert('The product ' + value + ' has been notified!');
+  }
 }
 
 /*
