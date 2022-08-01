@@ -1,4 +1,10 @@
+.table {
+  display: flex;
+}
 
+button.share {
+  margin-right: 14px;
+}
 
 /*
 Copyright Google LLC. All Rights Reserved.

@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: [
+    '../../node_modules/ng-zorro-antd/src/ng-zorro-antd.min.css',
+    './app.component.css',
+  ],
 })
-export class AppComponent {
-}
-
+export class AppComponent {}
 
 /*
 Copyright Google LLC. All Rights Reserved.

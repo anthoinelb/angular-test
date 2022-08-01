@@ -1,4 +1,25 @@
-<h2>Products</h2>
+<nz-page-header class="site-page-header" nzTitle="Produits">
+  <nz-avatar
+    nz-page-header-avatar
+    nzSrc="https://avatars0.githubusercontent.com/u/22736418?s=88&v=4"
+  ></nz-avatar>
+</nz-page-header>
+<div nz-row [nzGutter]="16">
+  <div *ngFor="let product of products">
+    <div nz-col nzSpan="12">
+      <nz-card
+        style="width:300px;"
+        nzTitle="Card title"
+        [nzExtra]="extraTemplate"
+      >
+        <p>Card content</p>
+      </nz-card>
+      <ng-template #extraTemplate>
+        <a>More</a>
+      </ng-template>
+    </div>
+  </div>
+</div>
 <div *ngFor="let product of products">
   <h3>
     <a [title]="product.name + ' details'">
@@ -6,9 +27,15 @@
     </a>
   </h3>
   <p *ngIf="product.description">Descitpion : {{ product.description }}</p>
-  <button type="button" (click)="share()">Share</button>
-  <app-product-alerts [product]="product" (notify)="onNotify($event)">
-  </app-product-alerts>
+  <div class="table">
+    <p>
+      <button nz-button nzType="primary" class="share" (click)="share()">
+        Primary
+      </button>
+    </p>
+    <app-product-alerts [product]="product" (notify)="onNotify($event)">
+    </app-product-alerts>
+  </div>
 </div>
 
 <!-- 
