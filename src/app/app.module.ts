@@ -8,6 +8,9 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzSpaceModule } from 'ng-zorro-antd/space';
+import { NzTagModule } from 'ng-zorro-antd/tag';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
@@ -19,12 +22,19 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([{ path: '', component: ProductListComponent }]),
+    RouterModule.forRoot([
+        { path: '', component: ProductListComponent },
+        { path: 'products', component: ProductListComponent },
+        { path: 'products/:productId', component: ProductDetailsComponent }
+    ]),
     NzIconModule,
     NzButtonModule,
     NzPageHeaderModule,
     NzGridModule,
     NzCardModule,
+    NzSpaceModule,
+    NzTagModule,
+    NzBreadCrumbModule
   ],
   declarations: [
     AppComponent,

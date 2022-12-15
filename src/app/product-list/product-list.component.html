@@ -1,41 +1,60 @@
-<nz-page-header class="site-page-header" nzTitle="Produits">
-  <nz-avatar
-    nz-page-header-avatar
-    nzSrc="https://avatars0.githubusercontent.com/u/22736418?s=88&v=4"
-  ></nz-avatar>
-</nz-page-header>
-<div nz-row [nzGutter]="16">
-  <div *ngFor="let product of products">
-    <div nz-col nzSpan="12">
-      <nz-card
-        style="width:300px;"
-        nzTitle="Card title"
-        [nzExtra]="extraTemplate"
-      >
-        <p>Card content</p>
-      </nz-card>
-      <ng-template #extraTemplate>
-        <a>More</a>
-      </ng-template>
+<div class="block">
+    <nz-page-header class="site-page-header">
+        <!--title-->
+        <nz-page-header-title>Produits</nz-page-header-title>
+
+        <!--subtitle-->
+        <nz-page-header-subtitle>This is a subtitle</nz-page-header-subtitle>
+
+        <!--extra-->
+        <nz-page-header-extra>
+            <nz-space>
+                <button *nzSpaceItem nz-button>Operation</button>
+                <button *nzSpaceItem nz-button>Operation</button>
+                <button *nzSpaceItem nz-button nzType="primary">Primary</button>
+            </nz-space>
+        </nz-page-header-extra>
+    </nz-page-header>
+    <div class="block-body">
+        <div nz-row [nzGutter]="16">
+            <div *ngFor="let product of products">
+                <div nz-col nzSpan="12">
+                    <nz-card
+                        style="width:300px;"
+                        nzTitle="Card title"
+                        [nzExtra]="extraTemplate"
+                    >
+                        <p>Card content</p>
+                    </nz-card>
+                    <ng-template #extraTemplate>
+                        <a>More</a>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
-<div *ngFor="let product of products">
-  <h3>
-    <a [title]="product.name + ' details'">
-      {{ product.name }} - {{ product.price }}€
-    </a>
-  </h3>
-  <p *ngIf="product.description">Descitpion : {{ product.description }}</p>
-  <div class="table">
-    <p>
-      <button nz-button nzType="primary" class="share" (click)="share()">
-        Primary
-      </button>
-    </p>
-    <app-product-alerts [product]="product" (notify)="onNotify($event)">
-    </app-product-alerts>
-  </div>
+<div class="block">
+    <div *ngFor="let product of products">
+        <h3>
+            <a
+                [title]="product.name + ' details'"
+                [routerLink]="['/products', product.id]"
+            >
+                {{ product.name }} - {{ product.price }}€
+            </a>
+        </h3>
+        <p *ngIf="product.description">Descitpion : {{ product.description }}</p>
+        <div class="table">
+            <p>
+                <button nz-button nzType="primary" class="share" (click)="share()">
+                    Primary
+                </button>
+            </p>
+            <app-product-alerts [product]="product" (notify)="onNotify($event)">
+            </app-product-alerts>
+        </div>
+    </div>
 </div>
 
 <!-- 
